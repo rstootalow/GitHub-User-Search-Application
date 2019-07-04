@@ -13,7 +13,7 @@ searchUser.addEventListener('keyup', (event) => {
     const userText = event.target.value;
 
     // input validation
-    if(userText != '') {
+    if(userText !== '') {
         // make get call to github
         github.getUser(userText)
             .then(data => {
