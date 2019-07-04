@@ -4,8 +4,8 @@ class UI {
     }
 
     showProfile(user) {
-        this.profile.innerHTML `
-        <div class="card card-bofy mb-3">
+        this.profile.innerHTML = `
+        <div class="card card-body mb-3">
             <div class="row">
                 <div class="col-md-3">
                     <img class="img-fluid mb-2" src="${user.avatar_url}">

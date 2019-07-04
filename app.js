@@ -1,8 +1,8 @@
 // instatiate instance of github class from github.js
-const github = new github;
+const github = new Github;
 
 // instantiate instance of UI class from UI.js
-const ui = new UIEvent;
+const ui = new UI;
 
 // select search input for keyup events
 const searchUser = document.getElementById('search-user');
