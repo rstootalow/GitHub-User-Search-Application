@@ -1,34 +1,30 @@
-// instatiate instance of github class from github.js
+// initalize github object for use in the app
 const github = new Github;
 
-// instantiate instance of UI class from UI.js
+// initalize UI object for use in the app
 const ui = new UI;
 
-// select search input for keyup events
+//select input field for searching
 const searchUser = document.getElementById('search-user');
 
-// keyup event listener for search input
+// search user event listener
 searchUser.addEventListener('keyup', (event) => {
-    // get input text from keyup
+    // variable to store user input on keyup event
     const userText = event.target.value;
 
-    // input validation
     if(userText !== '') {
-        // make get call to github
         github.getUser(userText)
+        // data is the response back from github api as an object
             .then(data => {
                 if(data.profile.message === 'Not Found') {
-                    // show alert notifying user there is no match
-                    ui.showAlert('User Not Found', 'alert alert-danger mt-12 mb-6')
+                    ui.showAlert('User not found!', 'alert alert-danger');
                 } else {
-                    // show user profile
                     ui.showProfile(data.profile);
-                    //show repos
-                    ui.showRepos(data.repo)
+                    ui.showRepos(data.repos)
                 }
             })
     } else {
-        // clear profile
+        // clear the profile
         ui.clearProfile();
     }
-});
+})
